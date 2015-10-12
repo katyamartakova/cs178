@@ -1,0 +1,33 @@
+<?xml version="1.0"?>
+
+<!-- Ekaterina Martakova -->
+<!-- CS178 -->
+<!-- Ant_ Build_And_Run -->
+
+<project name="CountThrees" default="all" basedir=".">
+    
+    <property name="src" value="src"/>
+    <property name="build" value="build"/>
+    <property name="lib" value="lib"/>
+    
+    <target name="test" depends="CountThrees" description="Runs the test">
+        <echo>Running Test</echo>
+        <java classname="CountThrees">
+            <classpath>
+                <pathelement path="${build}"/>
+            </classpath>
+        </java>
+    </target>    
+    
+    <target name="CountThrees" description="Runs the test">
+        <echo>Building Program</echo>
+        <javac srcdir="${src}" destdir="${build}" includeantruntime="false"/>
+    </target>
+    
+    <target name="clean" description="Removes previous build">
+        <delete verbose="true">
+            <fileset dir="${build}"/>
+        </delete>
+    </target>
+
+</project>
